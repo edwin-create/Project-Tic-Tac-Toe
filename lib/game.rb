@@ -4,7 +4,7 @@
 
 require_relative 'board'
 require_relative 'player'
-
+# Represents a Tic-Tac-Toe game and manages players and turns.
 class Game
   attr_reader :board, :player1, :player2, :current_player
 
@@ -47,7 +47,7 @@ class Game
   end
 end
 
-def get_player_input
+def get_player_input # rubocop:disable Naming/AccessorMethodName
   @current_player.player_move
   input = gets.chomp
   index = input.to_i - 1

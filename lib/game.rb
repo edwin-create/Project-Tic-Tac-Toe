@@ -48,12 +48,12 @@ class Game
 end
 
 def get_player_input # rubocop:disable Naming/AccessorMethodName
-  @current_player.player_move
-  input = gets.chomp
-  index = input.to_i - 1
-  if index.between?(0, 8) && @board.valid_move?(index)
-    index
-  else
+  loop do
+    @current_player.player_move
+    input = gets.chomp
+    index = input.to_i - 1
+    return index if index.between?(0, 8) && @board.valid_move?(index)
+
     puts 'Invalid move or spot taken. Please choose an available number (1-9).'
     get_player_input
   end

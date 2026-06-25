@@ -20,7 +20,7 @@ class Game
 
     loop do
       @board.display
-      index = get_player_input
+      index = fetch_player_input
       next unless @board.valid_move?(index)
 
       @board.update_cell(index, @current_player.marker)
@@ -47,7 +47,7 @@ class Game
   end
 end
 
-def get_player_input # rubocop:disable Naming/AccessorMethodName
+def fetch_player_input
   loop do
     @current_player.player_move
     input = gets.chomp
@@ -55,7 +55,7 @@ def get_player_input # rubocop:disable Naming/AccessorMethodName
     return index if index.between?(0, 8) && @board.valid_move?(index)
 
     puts 'Invalid move or spot taken. Please choose an available number (1-9).'
-    get_player_input
+    fetch_player_input
   end
 end
 

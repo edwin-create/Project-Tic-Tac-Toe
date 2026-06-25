@@ -15,7 +15,7 @@ class Game
     @current_player = @player1
   end
 
-  def start
+  def start # rubocop:disable Metrics/MethodLength
     puts "Starting a new game between #{@player1.name} and #{@player2.name}!"
 
     loop do

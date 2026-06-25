@@ -55,7 +55,6 @@ def fetch_player_input
     return index if index.between?(0, 8) && @board.valid_move?(index)
 
     puts 'Invalid move or spot taken. Please choose an available number (1-9).'
-    fetch_player_input
   end
 end
 
